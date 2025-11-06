@@ -256,6 +256,161 @@ int main() {
 
 ---
 
+
+/*
+ * Hollow Square Pattern
+ *
+ * Explanation:
+ *  - The pattern prints a square of size n.
+ *  - Only the border (first row, last row, first column, last column)
+ *    is printed with '*'.
+ *  - The inner cells are printed with spaces to make the square hollow.
+ *
+ 
+ 
+ */
+
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+
+            // Print star on the boundary, space inside
+            if (i == 1 || i == n || j == 1 || j == n) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
+**Expected output:**
+```
+  * * * *
+  *     *
+  *     *
+  *     *
+  * * * *
+```
+---
+
+/*
+ * Diamond Star Pattern
+ *
+ * Explanation:
+ *  - The diamond is created using two pyramids:
+ *      1. Upper pyramid (increasing stars)
+ *      2. Lower inverted pyramid (decreasing stars)
+ *  - For each line:
+ *      - First print spaces to center the stars.
+ *      - Then print (2*i - 1) stars to maintain symmetric shape.
+ 
+ */
+
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    // Upper half of diamond
+    for (int i = 1; i <= n; i++) {
+        // Print leading spaces
+        for (int s = 1; s <= n - i; s++) {
+            printf(" ");
+        }
+        // Print stars
+        for (int j = 1; j <= 2*i - 1; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    // Lower half of diamond
+    for (int i = n - 1; i >= 1; i--) {
+        for (int s = 1; s <= n - i; s++) {
+            printf(" ");
+        }
+        for (int j = 1; j <= 2*i - 1; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+**Expected output:**
+```
+ 
+      *
+     ***
+    *****
+   *******
+  *********
+   *******
+    *****
+     ***
+      *
+```
+---
+
+/*
+ * Hollow Pyramid Pattern
+ *
+ * Explanation:
+ *  - A pyramid with its inside hollow.
+ *  - For each row:
+ *      * Print leading spaces to center the pyramid.
+ *      * Print 1 star at the start and 1 star at the end.
+ *      * For the last row, print all stars to close the shape.
+ 
+ */
+
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+
+    for (int i = 1; i <= n; i++) {
+
+        // Print leading spaces
+        for (int s = 1; s <= n - i; s++) {
+            printf(" ");
+        }
+
+        // Print hollow pattern
+        for (int j = 1; j <= 2*i - 1; j++) {
+
+            // First star, last star, or entire last row
+            if (j == 1 || j == 2*i - 1 || i == n) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+**Expected output:**
+```
+
+      *
+     * *
+    *   *
+   *     *
+  *********
+```
+---
+
+
+
 ## Summary
 
 - Pattern programs use nested loops for rows and columns.
