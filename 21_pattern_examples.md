@@ -3,7 +3,7 @@
 <div align="right">
 
 **🧭 Navigation**  
-[⬅️ Previous](20_typedef.md) | [🏠 Home](README.md) | [➡️ Next](21_pattern_examples.md)
+[⬅️ Previous](20_typedef.md) | [🏠 Home](README.md) | [➡️ Next](README.md)
 
 </div>
 
@@ -256,7 +256,10 @@ int main() {
 
 ---
 
+**Code:**  
+Runnable source: [contributions/basic_programs/pattern_hollow_square.c](../contributions/basic_programs/pattern_hollow_square.c)
 
+```c
 /*
  * Hollow Square Pattern
  *
@@ -265,9 +268,7 @@ int main() {
  *  - Only the border (first row, last row, first column, last column)
  *    is printed with '*'.
  *  - The inner cells are printed with spaces to make the square hollow.
- *
- 
- 
+
  */
 
 #include <stdio.h>
@@ -277,39 +278,40 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
-
-            // Print star on the boundary, space inside
-            if (i == 1 || i == n || j == 1 || j == n) {
+            if (i == 1 || i == n || j == 1 || j == n)
                 printf("* ");
-            } else {
+            else
                 printf("  ");
-            }
+
         }
         printf("\n");
     }
     return 0;
 }
+```
+
 **Expected output:**
 ```
-  * * * *
-  *     *
-  *     *
-  *     *
-  * * * *
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
 ```
 ---
 
+ **Code:**  
+Runnable source: [contributions/basic_programs/pattern_diamond.c](../contributions/basic_programs/pattern_diamond.c)
+
+```c
 /*
  * Diamond Star Pattern
  *
  * Explanation:
- *  - The diamond is created using two pyramids:
- *      1. Upper pyramid (increasing stars)
- *      2. Lower inverted pyramid (decreasing stars)
- *  - For each line:
- *      - First print spaces to center the stars.
- *      - Then print (2*i - 1) stars to maintain symmetric shape.
- 
+ *  - The diamond is created using:
+ *      1. Upper pyramid
+ *      2. Lower inverted pyramid
+ *  - Each row is centered using spaces.
  */
 
 #include <stdio.h>
@@ -317,57 +319,50 @@ int main() {
 int main() {
     int n = 5;
 
-    // Upper half of diamond
+    // Upper half
     for (int i = 1; i <= n; i++) {
-        // Print leading spaces
-        for (int s = 1; s <= n - i; s++) {
-            printf(" ");
-        }
-        // Print stars
-        for (int j = 1; j <= 2*i - 1; j++) {
-            printf("*");
-        }
+        for (int s = 1; s <= n - i; s++) printf(" ");
+        for (int j = 1; j <= 2*i - 1; j++) printf("*");
         printf("\n");
     }
 
-    // Lower half of diamond
+    // Lower half
     for (int i = n - 1; i >= 1; i--) {
-        for (int s = 1; s <= n - i; s++) {
-            printf(" ");
-        }
-        for (int j = 1; j <= 2*i - 1; j++) {
-            printf("*");
-        }
+        for (int s = 1; s <= n - i; s++) printf(" ");
+        for (int j = 1; j <= 2*i - 1; j++) printf("*");
         printf("\n");
     }
 
     return 0;
 }
+```
+
 **Expected output:**
 ```
- 
-      *
-     ***
-    *****
-   *******
-  *********
-   *******
-    *****
-     ***
-      *
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
 ```
+
 ---
 
+ **Code:**  
+Runnable source: [contributions/basic_programs/pattern_hollow_pyramid.c](../contributions/basic_programs/pattern_hollow_pyramid.c)
+
+```c
 /*
  * Hollow Pyramid Pattern
  *
  * Explanation:
- *  - A pyramid with its inside hollow.
- *  - For each row:
- *      * Print leading spaces to center the pyramid.
- *      * Print 1 star at the start and 1 star at the end.
- *      * For the last row, print all stars to close the shape.
- 
+ *  - Spaces center the pyramid.
+ *  - First and last positions print stars.
+ *  - Last row prints all stars.
  */
 
 #include <stdio.h>
@@ -377,20 +372,15 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
 
-        // Print leading spaces
-        for (int s = 1; s <= n - i; s++) {
-            printf(" ");
-        }
+        // Leading spaces
+        for (int s = 1; s <= n - i; s++) printf(" ");
 
-        // Print hollow pattern
         for (int j = 1; j <= 2*i - 1; j++) {
-
-            // First star, last star, or entire last row
-            if (j == 1 || j == 2*i - 1 || i == n) {
+            if (j == 1 || j == 2*i - 1 || i == n)
                 printf("*");
-            } else {
+            else
                 printf(" ");
-            }
+
         }
 
         printf("\n");
@@ -398,14 +388,15 @@ int main() {
 
     return 0;
 }
-**Expected output:**
 ```
 
-      *
-     * *
-    *   *
-   *     *
-  *********
+**Expected output:**
+```
+    *
+   * *
+  *   *
+ *     *
+*********
 ```
 ---
 
@@ -422,6 +413,7 @@ int main() {
 <div align="right">
 
 **🧭 Navigation**  
-[⬅️ Previous](20_typedef.md) | [🏠 Home](README.md) | [➡️ Next](21_pattern_examples.md)
+[⬅️ Previous](20_typedef.md) | [🏠 Home](README.md)
+
 
 </div>
